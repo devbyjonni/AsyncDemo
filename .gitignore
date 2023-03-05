@@ -1,0 +1,31 @@
+# Xcode
+.DS_Store
+*/build/*
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+profile
+*.moved-aside
+*.xccheckout
+
+# Swift
+.build/
+Pods/
+*.xcodeproj
+*.xcworkspace
+*.xcuserdata
+
+# CocoaPods
+Pods/
+
+# Ignore the actual configuration file that contains sensitive information
+config.json

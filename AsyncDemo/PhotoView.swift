@@ -1,5 +1,5 @@
 //
-//  TodoImageView.swift
+//  PhotoView.swift
 //  AsyncDemo
 //
 //  Created by Jonni Akesson on 2023-03-05.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TodoImageView<ViewModel: TodoImageViewModelProtocol>: View {
+struct PhotoView<ViewModel: PhotoViewModelProtocol>: View {
     var url: URL
     @ObservedObject var viewModel: ViewModel
     
@@ -31,6 +31,6 @@ struct TodoImageView<ViewModel: TodoImageViewModelProtocol>: View {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoImageView(url: URL(string: "")!, viewModel: TodoImageViewModel())
+        PhotoView(url: URL(string: "")!, viewModel: PhotoViewModel())
     }
 }

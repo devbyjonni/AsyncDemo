@@ -1,5 +1,5 @@
 //
-//  ImageLoader.swift
+//  PhotoLoader.swift
 //  AsyncDemo
 //
 //  Created by Jonni Akesson on 2023-03-05.
@@ -8,11 +8,11 @@
 import UIKit
 
 
-protocol ImageLoaderProtocol {
+protocol PhotoLoaderProtocol {
     func fetchImage(from url: URL?) async throws -> UIImage?
 }
 
-class ImageLoader: ImageLoaderProtocol {
+class PhotoLoader: PhotoLoaderProtocol {
     private static let cache = NSCache<NSString, UIImage>()
     private var task: URLSessionDataTask?
 

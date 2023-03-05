@@ -1,5 +1,5 @@
 //
-//  TodoImageViewModelTests.swift
+//  PhotoViewModelTests.swift
 //  AsyncDemoTests
 //
 //  Created by Jonni Akesson on 2023-03-05.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import AsyncDemo
 
-final class TodoImageViewModelTests: XCTestCase {
+final class PhotoViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,7 +22,7 @@ final class TodoImageViewModelTests: XCTestCase {
         // Given
         let expectedImage = UIImage(systemName: "circle")!
         let imageLoader = MockImageLoader(expectedImage: expectedImage)
-        let viewModel = TodoImageViewModel(imageLoader: imageLoader)
+        let viewModel = PhotoViewModel(imageLoader: imageLoader)
         
         // When
         await viewModel.loadImage(from: URL(string: "https://example.com/image.jpg")!)
@@ -34,8 +34,8 @@ final class TodoImageViewModelTests: XCTestCase {
     func testLoadRealImage() async throws {
         // Given
         let url = URL(string: "https://picsum.photos/200")!
-        let imageLoader = ImageLoader()
-        let viewModel = TodoImageViewModel(imageLoader: imageLoader)
+        let imageLoader = PhotoLoader()
+        let viewModel = PhotoViewModel(imageLoader: imageLoader)
         
         // When
         await viewModel.loadImage(from: url)
@@ -45,7 +45,7 @@ final class TodoImageViewModelTests: XCTestCase {
     }
 }
 
-class MockImageLoader: ImageLoaderProtocol {
+class MockImageLoader: PhotoLoaderProtocol {
     let expectedImage: UIImage
     
     init(expectedImage: UIImage) {

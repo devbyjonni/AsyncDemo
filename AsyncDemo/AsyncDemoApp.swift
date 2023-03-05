@@ -13,8 +13,8 @@ struct AsyncDemoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TodosListView()
-                .environmentObject(TodosViewModel())
+            PhotosListView()
+                .environmentObject(PhotosListViewModel())
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }

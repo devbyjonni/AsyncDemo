@@ -1,5 +1,5 @@
 //
-//  TodosService.swift
+//  Service.swift
 //  AsyncDemo
 //
 //  Created by Jonni Akesson on 2023-03-05.
@@ -14,18 +14,18 @@ enum ServiceError: Error {
     case invalidURL
 }
 
-protocol TodosServiceProtocol {
-    func fetchJson(from url: URL?) async throws -> [Todo]
+protocol ServiceProtocol {
+    func fetchJson(from url: URL?) async throws -> [Photo]
 }
 
-class TodosService: TodosServiceProtocol {
+class Service: ServiceProtocol {
     private let urlSession: URLSession
     
     init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
     }
     
-    func fetchJson(from url: URL?) async throws -> [Todo] {
+    func fetchJson(from url: URL?) async throws -> [Photo] {
         guard let url = url else { throw ServiceError.invalidURL }
         do {
             let (data, response) = try await urlSession.data(from: url)
@@ -33,7 +33,7 @@ class TodosService: TodosServiceProtocol {
                   (200...299).contains(httpResponse.statusCode) else {
                 throw ServiceError.invalidResponse
             }
-            return try JSONDecoder().decode([Todo].self, from: data)
+            return try JSONDecoder().decode([Photo].self, from: data)
         } catch {
             throw ServiceError.decodingError("Failed to decode JSON data")
         }

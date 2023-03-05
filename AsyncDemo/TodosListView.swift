@@ -15,7 +15,7 @@ struct TodosListView: View {
             List {
                 ForEach(todoViewModel.todos) { todo in
                     if let url = URL(string: todo.thumbnailUrl) {
-                        TodoImageView(url: url, viewModel: MockTodoImageViewModel())
+                        TodoImageView(url: url, viewModel: TodoImageViewModel())
                             .frame(width: 100, height: 100)
                     } else {
                         Text("Invalid URL")
